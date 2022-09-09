@@ -1,5 +1,6 @@
 import requests
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__)
 
@@ -25,4 +26,7 @@ def chome():
         return render_template('home.html', data=None)
 
 
-app.run()
+port = int(os.environ.get('PORT', 5000))
+
+if __name__ == '__main__':
+    app.run(port=port)
